@@ -41,7 +41,7 @@ namespace Zambon.OrderManagement.Core.Repositories.General
                 from c in dbContext.Set<Customers>()
                 where
                     !parameters.Filters.Any()
-                    || EF.Functions.Like(c.Name ?? string.Empty, $"*{filters[nameof(Customers.Name)]}*")
+                    || EF.Functions.Like(c.Name ?? string.Empty, $"%{filters[nameof(Customers.Name)]}%")
                 select c;
 
             list = list.OrderBy(x => x.Name);
