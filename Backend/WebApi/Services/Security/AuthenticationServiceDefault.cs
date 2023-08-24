@@ -8,7 +8,6 @@ using System.Text;
 using Zambon.OrderManagement.Core;
 using Zambon.OrderManagement.Core.BusinessEntities.Security;
 using Zambon.OrderManagement.Core.Repositories.Security.Interfaces;
-using Zambon.OrderManagement.Core.Services.Interfaces;
 using Zambon.OrderManagement.WebApi.Helpers.Exceptions;
 using Zambon.OrderManagement.WebApi.Models;
 using Zambon.OrderManagement.WebApi.Services.Security.Interfaces;
@@ -22,22 +21,19 @@ namespace Zambon.OrderManagement.WebApi.Services.Security
         private readonly IMapper mapper;
         private readonly IUsersRepository usersRepository;
         private readonly IRefreshTokensRepository refreshTokenRepository;
-        private readonly ICurrentUserProvider currentUserProvider;
 
         public AuthenticationServiceDefault(
             IConfiguration config,
             AppDbContext dbContext,
             IMapper mapper,
-            IUsersRepository userRepository,
-            IRefreshTokensRepository refreshTokenRepository,
-            ICurrentUserProvider currentUserProvider)
+            IUsersRepository usersRepository,
+            IRefreshTokensRepository refreshTokenRepository)
         {
             this.config = config;
             this.dbContext = dbContext;
             this.mapper = mapper;
-            this.usersRepository = userRepository;
+            this.usersRepository = usersRepository;
             this.refreshTokenRepository = refreshTokenRepository;
-            this.currentUserProvider = currentUserProvider;
         }
 
 
