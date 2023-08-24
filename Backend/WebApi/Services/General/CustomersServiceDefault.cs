@@ -64,6 +64,7 @@ namespace Zambon.OrderManagement.WebApi.Services.General
             catch
             {
                 await transaction.RollbackAsync();
+                throw;
             }
         }
 
