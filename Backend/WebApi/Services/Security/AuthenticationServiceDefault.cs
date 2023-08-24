@@ -39,6 +39,11 @@ namespace Zambon.OrderManagement.WebApi.Services.Security
 
         public async Task<AuthenticationResponseModel> RefreshTokenAsync(RefreshTokenModel model)
         {
+            if (model == null)
+            {
+                throw new ArgumentNullException(nameof(model));
+            }
+
             if (string.IsNullOrEmpty(model.Username) || string.IsNullOrEmpty(model.RefreshToken))
             {
                 throw new RefreshTokenNotFoundException();
