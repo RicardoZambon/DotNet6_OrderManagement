@@ -87,6 +87,7 @@ namespace Zambon.OrderManagement.Core.Repositories.Stock
                 orderProduct.UnitPrice = product.UnitPrice;
             }
 
+            // Qty
             if (orderProduct.Qty <= 0)
             {
                 result.SetError(nameof(OrdersProducts.Qty), "min");
