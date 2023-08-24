@@ -28,19 +28,19 @@ namespace Zambon.OrderManagement.WebApi.Services.Stock
         }
 
 
-        public async Task<OrderUpdateModel> FindOrderByIdAsync(long orderId)
+        public async Task<OrderDisplayModel> FindOrderByIdAsync(long orderId)
         {
-            return mapper.Map<OrderUpdateModel>(await ordersRepository.FindByIdAsync(orderId));
+            return mapper.Map<OrderDisplayModel>(await ordersRepository.FindByIdAsync(orderId));
         }
 
-        public async Task<OrderUpdateModel> InsertNewOrderAsync(OrderInsertModel orderModel)
+        public async Task<OrderDisplayModel> InsertNewOrderAsync(OrderInsertModel orderModel)
         {
             var order = mapper.Map<Orders>(orderModel);
 
             await ordersRepository.AddAsync(order);
             await dbContext.SaveChangesAsync();
 
-            return mapper.Map<OrderUpdateModel>(order);
+            return mapper.Map<OrderDisplayModel>(order);
         }
 
         public IEnumerable<OrdersListModel> ListOrders(IListParameters parameters)
@@ -67,7 +67,7 @@ namespace Zambon.OrderManagement.WebApi.Services.Stock
             }
         }
 
-        public async Task<OrderUpdateModel> UpdateExistingOrderAsync(OrderUpdateModel orderModel)
+        public async Task<OrderDisplayModel> UpdateExistingOrderAsync(OrderUpdateModel orderModel)
         {
             if (await ordersRepository.FindByIdAsync(orderModel.ID) is not Orders order)
             {
@@ -77,7 +77,7 @@ namespace Zambon.OrderManagement.WebApi.Services.Stock
             await ordersRepository.UpdateAsync(mapper.Map(orderModel, order));
             await dbContext.SaveChangesAsync();
 
-            return mapper.Map<OrderUpdateModel>(order);
+            return mapper.Map<OrderDisplayModel>(order);
         }
     }
 }
