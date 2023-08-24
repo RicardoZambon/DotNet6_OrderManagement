@@ -22,11 +22,21 @@ namespace Zambon.OrderManagement.Core.Repositories.Security
 
         public async Task InsertAsync(RefreshTokens token)
         {
+            if (token == null)
+            {
+                throw new ArgumentNullException(nameof(token));
+            }
+
             await dbContext.Set<RefreshTokens>().AddAsync(token);
         }
 
         public async Task RevokeAsync(RefreshTokens token)
         {
+            if (token == null)
+            {
+                throw new ArgumentNullException(nameof(token));
+            }
+
             token.RevokedOn = DateTime.UtcNow;
             await Task.Run(() => { dbContext.Set<RefreshTokens>().Update(token); });
         }
