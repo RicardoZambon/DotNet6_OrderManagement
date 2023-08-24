@@ -59,7 +59,7 @@ namespace Zambon.OrderManagement.WebApi.Services.Security
                 throw new InvalidRefreshTokenException();
             }
 
-            using var transaction = dbContext.Database.BeginTransaction();
+            using var transaction = await dbContext.Database.BeginTransactionAsync();
             try
             {
                 var authenticationModel = mapper.Map<AuthenticationResponseModel>(refreshToken.User);
@@ -88,6 +88,11 @@ namespace Zambon.OrderManagement.WebApi.Services.Security
 
         public async Task<AuthenticationResponseModel> SignInAsync(SignInModel model)
         {
+            if (model == null)
+            {
+                throw new ArgumentNullException(nameof(model));
+            }
+
             if ((await usersRepository.FindByUsernameAsync(model.Username ?? string.Empty)) is not Users user
                 || user.Username == null || string.IsNullOrEmpty(model.Password)) {
                 throw new InvalidAuthenticationException();
