@@ -148,7 +148,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Stock
             }
             catch (EntityValidationFailureException validationEx)
             {
-                return StatusCode(400, new { validationEx.EntityKey, validationEx.ValidationResult.Errors });
+                return ValidationProblem(new ValidationProblemEntityDetails(validationEx));
             }
             catch (Exception ex)
             {
