@@ -19,11 +19,10 @@ namespace Zambon.OrderManagement.WebApi.Models.Stock
 
     public class OrderInsertModel
     {
-        public DateTime CreatedOn { get; set; }
         public long CustomerID { get; set; }
     }
 
-    public class OrderUpdateModel : ProductInsertModel
+    public class OrderUpdateModel : OrderInsertModel
     {
         public long ID { get; set; }
     }
@@ -32,6 +31,7 @@ namespace Zambon.OrderManagement.WebApi.Models.Stock
     {
         public string? CustomerID_Name { get; set; }
         public decimal Total { get; set; }
+        public DateTime CreatedOn { get; set; }
     }
 
     #endregion
