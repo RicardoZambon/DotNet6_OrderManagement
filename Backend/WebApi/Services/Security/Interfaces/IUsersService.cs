@@ -8,7 +8,7 @@ namespace Zambon.OrderManagement.WebApi.Services.Security.Interfaces
         Task<UserUpdateModel> FindUserByIdAsync(long userId);
         Task<UserUpdateModel> InsertNewUserAsync(UserInsertModel userModel);
         IEnumerable<UsersListModel> ListUsers(IListParameters parameters);
-        Task RemoveCustomersAsync(long[] userIds);
-        Task<UserUpdateModel> UpdateExistingCustomerAsync(UserUpdateModel userModel);
+        Task RemoveUsersAsync(long[] userIds);
+        Task<UserUpdateModel> UpdateExistingUserAsync(UserUpdateModel userModel);
     }
 }

@@ -47,7 +47,7 @@ namespace Zambon.OrderManagement.WebApi.Services.Security
             return usersRepository.List(parameters).ProjectTo<UsersListModel>(mapper.ConfigurationProvider);
         }
 
-        public async Task RemoveCustomersAsync(long[] userIds)
+        public async Task RemoveUsersAsync(long[] userIds)
         {
             var transaction = await dbContext.Database.BeginTransactionAsync();
             try
@@ -66,7 +66,7 @@ namespace Zambon.OrderManagement.WebApi.Services.Security
             }
         }
 
-        public async Task<UserUpdateModel> UpdateExistingCustomerAsync(UserUpdateModel userModel)
+        public async Task<UserUpdateModel> UpdateExistingUserAsync(UserUpdateModel userModel)
         {
             if (await usersRepository.FindByIdAsync(userModel.ID) is not Users user)
             {

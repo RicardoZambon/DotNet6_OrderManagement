@@ -76,7 +76,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Security
         {
             try
             {
-                return Ok(await usersService.UpdateExistingCustomerAsync(model));
+                return Ok(await usersService.UpdateExistingUserAsync(model));
             }
             catch (EntityNotFoundException)
             {
@@ -96,7 +96,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Security
         {
             try
             {
-                await usersService.RemoveCustomersAsync(userIds);
+                await usersService.RemoveUsersAsync(userIds);
                 return Ok();
             }
             catch (EntityNotFoundException)
