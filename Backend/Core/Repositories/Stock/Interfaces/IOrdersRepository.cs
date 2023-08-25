@@ -7,6 +7,7 @@ namespace Zambon.OrderManagement.Core.Repositories.Stock.Interfaces
     {
         Task AddAsync(Orders order);
         Task<Orders?> FindByIdAsync(long orderId);
+        Task<decimal> GetOrderTotalAsync(long orderId);
         IQueryable<Orders> List(IListParameters parameters);
         Task RemoveAsync(long orderId);
         Task UpdateAsync(Orders order);

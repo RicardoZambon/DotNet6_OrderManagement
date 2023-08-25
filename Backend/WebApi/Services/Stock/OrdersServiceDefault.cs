@@ -33,6 +33,11 @@ namespace Zambon.OrderManagement.WebApi.Services.Stock
             return mapper.Map<OrderDisplayModel>(await ordersRepository.FindByIdAsync(orderId));
         }
 
+        public async Task<decimal> GetOrderTotalAsync(long orderId)
+        {
+            return await ordersRepository.GetOrderTotalAsync(orderId);
+        }
+
         public async Task<OrderDisplayModel> InsertNewOrderAsync(OrderInsertModel orderModel)
         {
             var order = mapper.Map<Orders>(orderModel);

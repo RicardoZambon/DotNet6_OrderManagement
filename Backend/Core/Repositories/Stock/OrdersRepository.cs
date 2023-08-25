@@ -1,4 +1,7 @@
-﻿using Zambon.OrderManagement.Core.BusinessEntities.General;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using System.Data;
+using Zambon.OrderManagement.Core.BusinessEntities.General;
 using Zambon.OrderManagement.Core.BusinessEntities.Stock;
 using Zambon.OrderManagement.Core.Helpers.Exceptions;
 using Zambon.OrderManagement.Core.Helpers.Validations;
@@ -27,6 +30,27 @@ namespace Zambon.OrderManagement.Core.Repositories.Stock
 
         public async Task<Orders?> FindByIdAsync(long orderId)
             => await dbContext.FindAsync<Orders>(orderId);
+
+        public async Task<decimal> GetOrderTotalAsync(long orderId)
+        {
+            var orderIdParameter = new SqlParameter
+            {
+                ParameterName = "OrderID",
+                DbType = DbType.Int64,
+                Value = orderId
+            };
+
+            var totalParameter = new SqlParameter
+            {
+                ParameterName = "Total",
+                DbType = DbType.Decimal,
+                Direction = ParameterDirection.Output
+            };
+
+            await dbContext.Database.ExecuteSqlRawAsync("EXEC [Stock].GetOrderTotal {0}, {1} OUTPUT;", orderIdParameter, totalParameter);
+
+            return (decimal)totalParameter.Value;
+        }
 
         public IQueryable<Orders> List(IListParameters parameters)
         {

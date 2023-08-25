@@ -42,12 +42,12 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Stock
 
         #region CRUD
 
-        [HttpGet("{userId}")]
-        public async Task<IActionResult> Get([FromRoute] long userId)
+        [HttpGet("{orderId}")]
+        public async Task<IActionResult> Get([FromRoute] long orderId)
         {
             try
             {
-                return Ok(await ordersService.FindOrderByIdAsync(userId));
+                return Ok(await ordersService.FindOrderByIdAsync(orderId));
             }
             catch (EntityNotFoundException)
             {
@@ -58,6 +58,24 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Stock
                 return StatusCode(500, ex.Message + (ex.InnerException is Exception innerEx ? " " + innerEx.Message : ""));
             }
         }
+
+        [HttpGet("{orderId}/[action]")]
+        public async Task<IActionResult> Total([FromRoute] long orderId)
+        {
+            try
+            {
+                return Ok(await ordersService.GetOrderTotalAsync(orderId));
+            }
+            catch (EntityNotFoundException)
+            {
+                return NotFound();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message + (ex.InnerException is Exception innerEx ? " " + innerEx.Message : ""));
+            }
+        }
+
 
         [HttpPut]
         public async Task<IActionResult> Add([FromBody] OrderInsertModel model)
