@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage;
 using Zambon.OrderManagement.Core.BusinessEntities.Base;
 
@@ -73,10 +74,32 @@ namespace Zambon.OrderManagement.Core.DataInitializers
                         break;
                 }
 
+                if (entriesState == EntityState.Added)
+                {
+                    SetIdentityInsert<TEntity>(true);
+                }
+
+                dbContext.SaveChanges();
+
+                if (entriesState == EntityState.Added)
+                {
+                    SetIdentityInsert<TEntity>(false);
+                }
+
                 dbContext.SaveChanges();
                 transaction.Commit();
             }
             dbContext.ChangeTracker.Clear();
+        }
+
+        protected void SetIdentityInsert<TEntity>(bool enable) where TEntity : class
+        {
+            if (dbContext.Model.FindEntityType(typeof(TEntity)) is IEntityType entityType)
+            {
+                dbContext.Database.ExecuteSqlRaw(
+                    $"SET IDENTITY_INSERT {entityType.GetSchema()}.{entityType.GetTableName()} {(enable ? "ON" : "OFF")}"
+                );
+            }
         }
     }
 }
