@@ -6,7 +6,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Version>1.0.0</Version>
 		<RootNamespace>Zambon.OrderManagement.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
-		<UserSecretsId>a057f97a-52bc-4423-ada5-d083d9153fda</UserSecretsId>
+		<UserSecretsId>a057f97a-52bc-4423-ada5-d083d9153fef</UserSecretsId>
 	</PropertyGroup>
 
 	<ItemGroup>
