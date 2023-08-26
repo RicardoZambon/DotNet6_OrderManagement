@@ -83,5 +83,5 @@ Here are some extra features added to this project to highlight my work.
 
 ### Others
 * :white_check_mark: Dockerized the application
-* :black_square_button: ***TODO:*** API documentation using Swagger
+* :white_check_mark: ***TODO:*** API documentation using Swagger
 * :black_square_button: ***TODO:*** Create a basic web client using TypeScript 
