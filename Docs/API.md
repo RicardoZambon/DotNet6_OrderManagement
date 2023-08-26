@@ -40,22 +40,22 @@ Response with status code 400 indicates validation issues with the update model.
 
 ### Products
 * **[PUT] /Products/Add**<br />
-Validate and add a new product in the ```[General].[Products]```, expect to receive a model with the product to be inserted, and return an object with the product representation.<br />
+Validate and add a new product in the ```[Stock].[Products]```, expect to receive a model with the product to be inserted, and return an object with the product representation.<br />
 Response with status code 400 indicates validation issues with the insert model.
 
 * **[PUT] /Products/Delete**<br />
-Delete existing products in the ```[General].[Products]```, expect to receive from the query a list of product IDs to be deleted.<br />
+Delete existing products in the ```[Stock].[Products]```, expect to receive from the query a list of product IDs to be deleted.<br />
 Response with status code 404 indicates one or more products were not found, in this case, the transaction is rolled back.
 
 * **[GET] /Products/Get**<br />
-Return a product in the ```[General].[Products]```, expects to receive the entity ID to search for.<br />
+Return a product in the ```[Stock].[Products]```, expects to receive the entity ID to search for.<br />
 Response with status code 404 indicates the product was not found.
 
 * **[POST] /Products/List**<br />
-Return a list of products in the ```[General].[Products]```, expects to receive a parameters object for pagination (```StartRow``` and ```EndRow```) and filtering (```Filters```).
+Return a list of products in the ```[Stock].[Products]```, expects to receive a parameters object for pagination (```StartRow``` and ```EndRow```) and filtering (```Filters```).
 
 * **[POST] /Products/Update**<br />
-Validate and update an existing new product in the ```[General].[Products]```, expects to receive a model with the product to be updated, and returns an object with the product representation.<br />
+Validate and update an existing new product in the ```[Stock].[Products]```, expects to receive a model with the product to be updated, and returns an object with the product representation.<br />
 Response with status code 400 indicates validation issues with the update model.
 
 
