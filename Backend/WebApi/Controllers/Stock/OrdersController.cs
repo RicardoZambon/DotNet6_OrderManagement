@@ -39,7 +39,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Stock
         /// Return a list of orders.
         /// </summary>
         /// <param name="parameters">Parameter object for pagination and filtering the results.</param>
-        /// <returns>A list of orders accordingly to the criteria in the parameters.</returns>
+        /// <returns>The <see cref="OkObjectResult"/> response with a list of <see cref="OrdersListModel"/> results.</returns>
         /// <remarks>
         /// Sample request:
         /// 
@@ -77,7 +77,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Stock
         /// Return a order by the ID.
         /// </summary>
         /// <param name="orderId">The ID of the order to search for.</param>
-        /// <returns>An object representing the <see cref="Orders"/> instance.</returns>
+        /// <returns>The <see cref="OkObjectResult"/> response with the <see cref="OrderUpdateModel"/> instance.</returns>
         /// <response code="200">Sucessfully returned the order.</response>
         /// <response code="404">The order ID was not found.</response>
         /// <response code="500">Internal server issue.</response>
@@ -104,6 +104,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Stock
         /// </summary>
         /// <param name="orderId">The ID of the order to search for.</param>
         /// <returns>The total (sum of the products Qty * UnitPrice) of <see cref="Orders"/> instance.</returns>
+        /// <returns>The <see cref="OkObjectResult"/> response with the total (sum of the products Qty * UnitPrice) of <see cref="Orders"/> instance.</returns>
         /// <response code="200">Sucessfully returned the order total.</response>
         /// <response code="404">The order ID was not found.</response>
         /// <response code="500">Internal server issue.</response>
@@ -129,7 +130,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Stock
         /// Validate and add a new order.
         /// </summary>
         /// <param name="model">The order model to be inserted.</param>
-        /// <returns>An object representing the <see cref="Orders"/> instance.</returns>
+        /// <returns>The <see cref="OkObjectResult"/> response with the <see cref="OrderUpdateModel"/> instance.</returns>
         /// <remarks>
         /// Sample request:
         /// 
@@ -163,7 +164,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Stock
         /// Validate and update an existing order.
         /// </summary>
         /// <param name="model">The order model to be updated.</param>
-        /// <returns>An object representing the <see cref="Orders"/> instance.</returns>
+        /// <returns>The <see cref="OkObjectResult"/> response with the <see cref="OrderUpdateModel"/> instance.</returns>
         /// <remarks>
         /// Sample request:
         /// 
@@ -202,7 +203,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Stock
         /// Delete existing orders.
         /// </summary>
         /// <param name="orderIds">The order IDs to be deleted.</param>
-        /// <returns>Async task result indicating the job completion.</returns>
+        /// <returns>The <see cref="OkResult"/> response.</returns>
         /// <response code="200">Sucessfully deleted the order IDs.</response>
         /// <response code="404">The order ID was not found.</response>
         /// <response code="500">Internal server issue.</response>
@@ -234,6 +235,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Stock
         /// <param name="orderId">The ID of the order to search for.</param>
         /// <param name="parameters">Parameter object for pagination and filtering the results.</param>
         /// <returns>A list of products from an order accordingly to the criteria in the parameters.</returns>
+        /// <returns>The <see cref="OkObjectResult"/> response with a list of <see cref="OrdersProductsListModel"/> results.</returns>
         /// <remarks>
         /// Sample request:
         /// 
@@ -266,11 +268,11 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Stock
         }
 
         /// <summary>
-        /// Update the products of an order.
+        /// Update the products from an order.
         /// </summary>
         /// <param name="orderId">The ID of the order to search for.</param>
         /// <param name="model">Parameter object with products to be inserted, updated, or deleted from the order.</param>
-        /// <returns>Async task result indicating the job completion.</returns>
+        /// <returns>The <see cref="OkResult"/> response.</returns>
         /// <remarks>
         /// Sample request:
         /// 

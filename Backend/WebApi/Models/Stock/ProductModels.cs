@@ -44,7 +44,7 @@ namespace Zambon.OrderManagement.WebApi.Models.Stock
     }
 
     /// <summary>
-    /// Model representation when returning or updating a entity into <see cref="Products"/>.
+    /// Model representation when updating or returning an entity from <see cref="Products"/>.
     /// </summary>
     public class ProductUpdateModel : ProductInsertModel
     {

@@ -62,7 +62,7 @@ namespace Zambon.OrderManagement.WebApi.Models.Security
     }
 
     /// <summary>
-    /// Model representation when returning or updating a entity into <see cref="Users"/>.
+    /// Model representation when updating or returning an entity from <see cref="Users"/>.
     /// </summary>
     public class UserUpdateModel : UserBaseModel
     {

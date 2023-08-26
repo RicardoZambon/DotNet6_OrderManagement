@@ -11,12 +11,19 @@ using Zambon.OrderManagement.WebApi.Services.General.Interfaces;
 
 namespace Zambon.OrderManagement.WebApi.Services.General
 {
+    /// <inheritdoc/>
     public class CustomersServiceDefault : ICustomersService
     {
         private readonly AppDbContext dbContext;
         private readonly IMapper mapper;
         private readonly ICustomersRepository customersRepository;
 
+        /// <summary>
+        /// Initializes a new instance of <see cref="CustomersServiceDefault"/> class.
+        /// </summary>
+        /// <param name="dbContext">The <see cref="AppDbContext"/> instance.</param>
+        /// <param name="mapper">The <see cref="IMapper"/> instance.</param>
+        /// <param name="customersRepository">The <see cref="ICustomersRepository"/> instance.</param>
         public CustomersServiceDefault(
             AppDbContext dbContext,
             IMapper mapper,
@@ -28,11 +35,16 @@ namespace Zambon.OrderManagement.WebApi.Services.General
         }
 
 
+        /// <inheritdoc/>
         public async Task<CustomerUpdateModel> FindCustomerByIdAsync(long customerId)
         {
-            return mapper.Map<CustomerUpdateModel>(await customersRepository.FindByIdAsync(customerId));
+            if (await customersRepository.FindByIdAsync(customerId) is not Customers customer) {
+                throw new EntityNotFoundException(nameof(Users), customerId);
+            }
+            return mapper.Map<CustomerUpdateModel>(customer);
         }
 
+        /// <inheritdoc/>
         public async Task<CustomerUpdateModel> InsertNewCustomerAsync(CustomerInsertModel customerModel)
         {
             var customer = mapper.Map<Customers>(customerModel);
@@ -43,11 +55,13 @@ namespace Zambon.OrderManagement.WebApi.Services.General
             return mapper.Map<CustomerUpdateModel>(customer);
         }
 
+        /// <inheritdoc/>
         public IEnumerable<CustomersListModel> ListCustomers(IListParameters parameters)
         {
             return customersRepository.List(parameters).ProjectTo<CustomersListModel>(mapper.ConfigurationProvider);
         }
 
+        /// <inheritdoc/>
         public async Task RemoveCustomersAsync(long[] customerIds)
         {
             var transaction = await dbContext.Database.BeginTransactionAsync();
@@ -68,6 +82,7 @@ namespace Zambon.OrderManagement.WebApi.Services.General
             }
         }
 
+        /// <inheritdoc/>
         public async Task<CustomerUpdateModel> UpdateExistingCustomerAsync(CustomerUpdateModel customerModel)
         {
             if (await customersRepository.FindByIdAsync(customerModel.ID) is not Customers customer)

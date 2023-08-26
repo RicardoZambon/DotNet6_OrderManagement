@@ -14,6 +14,7 @@ using Zambon.OrderManagement.WebApi.Services.Security.Interfaces;
 
 namespace Zambon.OrderManagement.WebApi.Services.Security
 {
+    /// <inheritdoc/>
     public class AuthenticationServiceDefault : IAuthenticationService
     {
         private readonly IConfiguration config;
@@ -22,6 +23,14 @@ namespace Zambon.OrderManagement.WebApi.Services.Security
         private readonly IUsersRepository usersRepository;
         private readonly IRefreshTokensRepository refreshTokenRepository;
 
+        /// <summary>
+        /// Initializes a new instance of <see cref="AuthenticationServiceDefault"/> class.
+        /// </summary>
+        /// <param name="config">The <see cref="IConfiguration"/> instance.</param>
+        /// <param name="dbContext">The <see cref="AppDbContext"/> instance.</param>
+        /// <param name="mapper">The <see cref="IMapper"/> instance.</param>
+        /// <param name="usersRepository">The <see cref="IUsersRepository"/> instance.</param>
+        /// <param name="refreshTokenRepository">The <see cref="IRefreshTokensRepository"/> instance.</param>
         public AuthenticationServiceDefault(
             IConfiguration config,
             AppDbContext dbContext,
@@ -37,6 +46,7 @@ namespace Zambon.OrderManagement.WebApi.Services.Security
         }
 
 
+        /// <inheritdoc/>
         public async Task<AuthenticationResponseModel> RefreshTokenAsync(RefreshTokenModel model)
         {
             if (model == null)
@@ -86,6 +96,7 @@ namespace Zambon.OrderManagement.WebApi.Services.Security
             }
         }
 
+        /// <inheritdoc/>
         public async Task<AuthenticationResponseModel> SignInAsync(SignInModel model)
         {
             if (model == null)

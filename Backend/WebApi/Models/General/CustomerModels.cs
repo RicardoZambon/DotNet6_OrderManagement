@@ -36,7 +36,7 @@ namespace Zambon.OrderManagement.WebApi.Models.General
     }
 
     /// <summary>
-    /// Model representation when returning or updating a entity into <see cref="Customers"/>.
+    /// Model representation when updating or returning an entity from <see cref="Customers"/>.
     /// </summary>
     public class CustomerUpdateModel : CustomerInsertModel
     {

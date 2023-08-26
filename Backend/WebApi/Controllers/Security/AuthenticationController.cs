@@ -28,7 +28,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Security
         /// Refresh the JWT token using a valid Refresh Token.
         /// </summary>
         /// <param name="model">Username and refresh token.</param>
-        /// <returns>An instance of <see cref="AuthenticationResponseModel"/> with the JWT token and refresh token.</returns>
+        /// <returns>The <see cref="OkObjectResult"/> response with the <see cref="AuthenticationResponseModel"/> instance.</returns>
         /// <remarks>
         /// Sample request:
         /// 
@@ -68,7 +68,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Security
         /// Validate the user credentials to grant access to the API.
         /// </summary>
         /// <param name="model">Username and password to authenticate.</param>
-        /// <returns>An instance of <see cref="AuthenticationResponseModel"/> with the JWT token and refresh token.</returns>
+        /// <returns>The <see cref="OkObjectResult"/> response with the <see cref="AuthenticationResponseModel"/> instance.</returns>
         /// <remarks>
         /// Sample request:
         /// 

@@ -33,7 +33,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Stock
         /// Return a list of products.
         /// </summary>
         /// <param name="parameters">Parameter object for pagination and filtering the results.</param>
-        /// <returns>A list of products accordingly to the criteria in the parameters.</returns>
+        /// <returns>The <see cref="OkObjectResult"/> response with a list of <see cref="ProductsListModel"/> results.</returns>
         /// <remarks>
         /// Sample request:
         /// 
@@ -71,7 +71,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Stock
         /// Return a product by the ID.
         /// </summary>
         /// <param name="productId">The ID of the product to search for.</param>
-        /// <returns>An object representing the <see cref="Products"/> instance.</returns>
+        /// <returns>The <see cref="OkObjectResult"/> response with the <see cref="ProductUpdateModel"/> instance.</returns>
         /// <response code="200">Sucessfully returned the product.</response>
         /// <response code="404">The product ID was not found.</response>
         /// <response code="500">Internal server issue.</response>
@@ -97,7 +97,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Stock
         /// Validate and add a new product.
         /// </summary>
         /// <param name="model">The product model to be inserted.</param>
-        /// <returns>An object representing the <see cref="Products"/> instance.</returns>
+        /// <returns>The <see cref="OkObjectResult"/> response with the <see cref="ProductUpdateModel"/> instance.</returns>
         /// <remarks>
         /// Sample request:
         /// 
@@ -131,7 +131,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Stock
         /// Validate and update an existing product.
         /// </summary>
         /// <param name="model">The product model to be updated.</param>
-        /// <returns>An object representing the <see cref="Products"/> instance.</returns>
+        /// <returns>The <see cref="OkObjectResult"/> response with the <see cref="ProductUpdateModel"/> instance.</returns>
         /// <remarks>
         /// Sample request:
         /// 
@@ -170,7 +170,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Stock
         /// Delete existing products.
         /// </summary>
         /// <param name="productIds">The product IDs to be deleted.</param>
-        /// <returns>Async task result indicating the job completion.</returns>
+        /// <returns>The <see cref="OkResult"/> response.</returns>
         /// <response code="200">Sucessfully deleted the product IDs.</response>
         /// <response code="404">The product ID was not found.</response>
         /// <response code="500">Internal server issue.</response>

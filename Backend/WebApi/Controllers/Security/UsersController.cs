@@ -34,7 +34,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Security
         /// Return a list of users.
         /// </summary>
         /// <param name="parameters">Parameter object for pagination and filtering the results.</param>
-        /// <returns>A list of users accordingly to the criteria in the parameters.</returns>
+        /// <returns>The <see cref="OkObjectResult"/> response with a list of <see cref="UsersListModel"/> results.</returns>
         /// <remarks>
         /// Sample request:
         /// 
@@ -72,7 +72,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Security
         /// Return a user by the ID.
         /// </summary>
         /// <param name="userId">The ID of the user to search for.</param>
-        /// <returns>An object representing the <see cref="Users"/> instance.</returns>
+        /// <returns>The <see cref="OkObjectResult"/> response with the <see cref="UserUpdateModel"/> instance.</returns>
         /// <response code="200">Sucessfully returned the user.</response>
         /// <response code="404">The user ID was not found.</response>
         /// <response code="500">Internal server issue.</response>
@@ -98,7 +98,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Security
         /// Validate and add a new user.
         /// </summary>
         /// <param name="model">The user model to be inserted.</param>
-        /// <returns>An object representing the <see cref="Users"/> instance.</returns>
+        /// <returns>The <see cref="OkObjectResult"/> response with the <see cref="UserUpdateModel"/> instance.</returns>
         /// <remarks>
         /// Sample request:
         /// 
@@ -135,7 +135,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Security
         /// Validate and update an existing user.
         /// </summary>
         /// <param name="model">The user model to be updated.</param>
-        /// <returns>An object representing the <see cref="Users"/> instance.</returns>
+        /// <returns>The <see cref="OkObjectResult"/> response with the <see cref="UserUpdateModel"/> instance.</returns>
         /// <remarks>
         /// Sample request:
         /// 
@@ -177,7 +177,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Security
         /// Delete existing users.
         /// </summary>
         /// <param name="userIds">The user IDs to be deleted.</param>
-        /// <returns>Async task result indicating the job completion.</returns>
+        /// <returns>The <see cref="OkResult"/> response.</returns>
         /// <response code="200">Sucessfully deleted the user IDs.</response>
         /// <response code="404">The user ID was not found.</response>
         /// <response code="500">Internal server issue.</response>

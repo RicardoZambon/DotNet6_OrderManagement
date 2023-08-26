@@ -12,6 +12,7 @@ using Zambon.OrderManagement.WebApi.Services.Stock.Interfaces;
 
 namespace Zambon.OrderManagement.WebApi.Services.Stock
 {
+    /// <inheritdoc/>
     public class OrdersProductsServiceDefault : IOrdersProductsService
     {
         private readonly AppDbContext dbContext;
@@ -19,6 +20,13 @@ namespace Zambon.OrderManagement.WebApi.Services.Stock
         private readonly IOrdersProductsRepository ordersProductsRepository;
         private readonly IOrdersRepository ordersRepository;
 
+        /// <summary>
+        /// Initializes a new instance of <see cref="OrdersProductsServiceDefault"/> class.
+        /// </summary>
+        /// <param name="dbContext">The <see cref="AppDbContext"/> instance.</param>
+        /// <param name="mapper">The <see cref="IMapper"/> instance.</param>
+        /// <param name="ordersProductsRepository">The <see cref="IOrdersProductsRepository"/> instance.</param>
+        /// <param name="ordersRepository">The <see cref="IOrdersRepository"/> instance.</param>
         public OrdersProductsServiceDefault(
             AppDbContext dbContext,
             IMapper mapper,
@@ -32,6 +40,7 @@ namespace Zambon.OrderManagement.WebApi.Services.Stock
         }
 
 
+        /// <inheritdoc/>
         public async Task BatchUpdateOrdersProductsAsync(long orderId, BatchUpdateModel<OrdersProductUpdateModel, long> batchUpdateModel)
         {
             if (await ordersRepository.FindByIdAsync(orderId) is not Orders order)
@@ -97,6 +106,7 @@ namespace Zambon.OrderManagement.WebApi.Services.Stock
             }
         }
 
+        /// <inheritdoc/>
         public async Task<IEnumerable<OrdersProductsListModel>> ListOrdersProductsAsync(long orderId, IListParameters parameters)
         {
             if (await ordersRepository.FindByIdAsync(orderId) is null)
