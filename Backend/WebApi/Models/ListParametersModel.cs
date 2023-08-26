@@ -3,22 +3,22 @@
 namespace Zambon.OrderManagement.WebApi.Models
 {
     /// <summary>
-    /// Generic parameter to filter or sort entities list.
+    /// Model used to filter or sort entities lists.
     /// </summary>
     public class ListParametersModel : IListParameters
     {
         /// <summary>
-        /// End row to return.
+        /// The number of rows to return.
         /// </summary>
         public int EndRow { get; set; }
 
         /// <summary>
-        /// List of entity properties to filter with the value.
+        /// Dictionary of the entity properties to filter the returned list.
         /// </summary>
         public IDictionary<string, object> Filters { get; set; } = new Dictionary<string, object>();
 
         /// <summary>
-        /// Start row to return, default 0.
+        /// The number of the first row to return.
         /// </summary>
         public int StartRow { get; set; }
     }

@@ -1,17 +1,19 @@
-﻿namespace Zambon.OrderManagement.WebApi.Models
+﻿using Zambon.OrderManagement.Core.BusinessEntities.Security;
+
+namespace Zambon.OrderManagement.WebApi.Models
 {
     /// <summary>
-    /// Model of values used to generate a new user JWT token and Refresh Token.
+    /// Model used to generate JWT token and refresh token for a user.
     /// </summary>
     public class RefreshTokenModel
     {
         /// <summary>
-        /// Refresh Token to generate a new JWT Token.
+        /// The refresh token from the <see cref="RefreshTokens"/> instance to generate a new JWT token.
         /// </summary>
         public string? RefreshToken { get; set; }
 
         /// <summary>
-        /// Username to refresh the token.
+        /// The username from the <see cref="Users"/> instance owner of the refresh token.
         /// </summary>
         public string? Username { get; set; }
     }
