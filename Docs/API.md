@@ -38,6 +38,39 @@ Validate and update an existing new customer in the ```[General].[Customers]```,
 Response with status code 400 indicates validation issues with the update model.
 
 
+### Orders
+* **[PUT] /Orders/Add**<br />
+Validate and add a new order in the ```[Stock].[Orders]```, expect to receive a model with the order to be inserted, and return an object with the order representation.<br />
+Response with status code 400 indicates validation issues with the insert model.
+
+* **[PUT] /Orders/Delete**<br />
+Delete existing orders in the ```[Stock].[Orders]```, expect to receive from the query a list of order IDs to be deleted.<br />
+Response with status code 404 indicates one or more orders were not found, in this case, the transaction is rolled back.
+
+* **[GET] /Orders/Get**<br />
+Return a order in the ```[Stock].[Orders]```, expects to receive the entity ID to search for.<br />
+Response with status code 404 indicates the order was not found.
+
+* **[POST] /Orders/List**<br />
+Return a list of orders in the ```[Stock].[Orders]```, expects to receive a parameters object for pagination (```StartRow``` and ```EndRow```) and filtering (```Filters```).
+
+* **[POST] /Orders/Products/List**<br />
+Return a list of products from an order in the ```[Stock].[OrdersProducts]```, expects to receive the order ID and a parameters object for pagination (```StartRow``` and ```EndRow```).
+
+* **[POST] /Orders/Products**<br />
+Validate and update the products in an existing order in the ```[Stock].[OrdersProducts]```, expect to receive the order ID and a model with the products to be inserted, updated, or removed.<br />
+Response with status code 400 indicates validation issues with the model, in this case, the transaction is rolled back.
+Response with status code 404 indicates the orders were not found.
+
+* **[GET] /Orders/Total**<br />
+Return the order total in the ```[Stock].[Orders]``` using a stored procedure, expecting to receive the entity ID to search for.<br />
+Response with status code 404 indicates the order was not found.
+
+* **[POST] /Orders/Update**<br />
+Validate and update an existing new order in the ```[Stock].[Orders]```, expect to receive a model with the order to be updated, and return an object with the order representation.<br />
+Response with status code 400 indicates validation issues with the update model.
+
+
 ### Products
 * **[PUT] /Products/Add**<br />
 Validate and add a new product in the ```[Stock].[Products]```, expect to receive a model with the product to be inserted, and return an object with the product representation.<br />
