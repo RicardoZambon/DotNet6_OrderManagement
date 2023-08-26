@@ -171,7 +171,7 @@ The services test uses ```Moq``` to mock repository interfaces, database, and ot
 ### Customer
 
 * **FindCustomerByIdAsync**
-  * Success - Invalid customer ID
+  * Fail - Invalid customer ID
   * Success - Valid customer ID
 * **InsertNewCustomerAsync**
   * Success
@@ -204,7 +204,7 @@ The services test uses ```Moq``` to mock repository interfaces, database, and ot
 ### Orders
 
 * **FindOrderByIdAsync**
-  * Success - Invalid order ID
+  * Fail - Invalid order ID
   * Success - Valid order ID
 * **InsertNewOrderAsync**
   * Success
@@ -219,7 +219,7 @@ The services test uses ```Moq``` to mock repository interfaces, database, and ot
 ### Products
 
 * **FindProductByIdAsync**
-  * Success - Invalid product ID
+  * Fail - Invalid product ID
   * Success - Valid product ID
 * **InsertNewProductAsync**
   * Success
@@ -234,7 +234,7 @@ The services test uses ```Moq``` to mock repository interfaces, database, and ot
 ### Users
 
 * **FindUserByIdAsync**
-  * Success - Invalid user ID
+  * Fail - Invalid user ID
   * Success - Valid user ID
 * **InsertNewUserAsync**
   * Success
