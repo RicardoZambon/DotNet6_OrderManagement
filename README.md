@@ -3,10 +3,9 @@
 
 ## Docs
 
-### <a href="/Docks/API.md">> API</a>
-### <a href="Docks/DevSetup.md">> Dev environment setup</a>
-### <a href="Docks/Docker">> Docker</a>
-### <a href="Docks/Testing.md">> Testing</a>
+### [> API](/Docs/API.md)
+### [> Dev environment setup](/Docs/DevSetup.md)
+### [> Testing](/Docs/Testing.md)
 
 
 ## About this project
