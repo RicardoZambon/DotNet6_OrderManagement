@@ -24,7 +24,7 @@ namespace UnitTests.RepositoryTests
 
 
         [Fact]
-        public async Task AddAsync_Success()
+        public async Task AddAsync_Success_NewCustomer()
         {
             using var context = databaseFixture.CreateContext();
 
@@ -184,7 +184,7 @@ namespace UnitTests.RepositoryTests
         }
 
         [Fact]
-        public async Task List_Success_WithFilterName()
+        public async Task List_Success_WithFilterByName()
         {
             using var context = databaseFixture.CreateContext();
 

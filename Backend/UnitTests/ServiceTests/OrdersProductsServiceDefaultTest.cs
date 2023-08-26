@@ -563,7 +563,7 @@ namespace UnitTests.ServiceTests
         }
 
         [Fact]
-        public async Task ListOrdersProductsAsync_Failure_NotExistsOrderId()
+        public async Task ListOrdersProductsAsync_Failure_InvalidOrderId()
         {
             // Arrange
             var orderId = 1L;

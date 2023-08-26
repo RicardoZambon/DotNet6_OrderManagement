@@ -27,7 +27,7 @@ namespace UnitTests.ServiceTests
 
 
         [Fact]
-        public async Task FindProductByIdAsync_Success_InvalidProductId()
+        public async Task FindProductByIdAsync_Fail_InvalidProductId()
         {
             // Arrange
             var dbContextMock = new Mock<AppDbContext>(new DbContextOptions<AppDbContext>());
@@ -42,11 +42,14 @@ namespace UnitTests.ServiceTests
             // Act
             var productService = new ProductsServiceDefault(dbContextMock.Object, mapper, productsRepositoryMock.Object);
 
-            var productResult = await productService.FindProductByIdAsync(1);
+            var method = async () =>
+            {
+                _ = await productService.FindProductByIdAsync(1);
+            };
 
 
             // Assert
-            Assert.Null(productResult);
+            await Assert.ThrowsAsync<EntityNotFoundException>(method);
         }
 
         [Fact]

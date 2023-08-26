@@ -25,7 +25,7 @@ namespace UnitTests.RepositoryTests
 
 
         [Fact]
-        public async Task AddAsync_Success()
+        public async Task AddAsync_Success_NewOrderProduct()
         {
             using var context = databaseFixture.CreateContext();
 

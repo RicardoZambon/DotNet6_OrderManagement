@@ -24,7 +24,7 @@ namespace UnitTests.RepositoryTests
 
 
         [Fact]
-        public async Task AddAsync_Success()
+        public async Task AddAsync_Success_NewUser()
         {
             using var context = databaseFixture.CreateContext();
 
@@ -309,7 +309,7 @@ namespace UnitTests.RepositoryTests
         }
 
         [Fact]
-        public async Task List_Success_WithFilterUsername()
+        public async Task List_Success_WithFilterByUsername()
         {
             using var context = databaseFixture.CreateContext();
 
@@ -509,7 +509,7 @@ namespace UnitTests.RepositoryTests
         }
 
         [Fact]
-        public async Task ValidateAsync_Fail_InvalidUser_NameInvalid()
+        public async Task ValidateAsync_Fail_InvalidUser_UsernameInvalid()
         {
             using var context = databaseFixture.CreateContext();
 

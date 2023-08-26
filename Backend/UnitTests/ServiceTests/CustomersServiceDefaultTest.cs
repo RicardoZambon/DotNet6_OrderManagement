@@ -27,7 +27,7 @@ namespace UnitTests.ServiceTests
 
 
         [Fact]
-        public async Task FindCustomerByIdAsync_Success_InvalidCustomerId()
+        public async Task FindCustomerByIdAsync_Fail_InvalidCustomerId()
         {
             // Arrange
             var dbContextMock = new Mock<AppDbContext>(new DbContextOptions<AppDbContext>());
@@ -42,11 +42,14 @@ namespace UnitTests.ServiceTests
             // Act
             var customerService = new CustomersServiceDefault(dbContextMock.Object, mapper, customersRepositoryMock.Object);
 
-            var customerResult = await customerService.FindCustomerByIdAsync(1);
+            var method = async () =>
+            {
+                _ = await customerService.FindCustomerByIdAsync(1);
+            };
 
 
             // Assert
-            Assert.Null(customerResult);
+            await Assert.ThrowsAsync<EntityNotFoundException>(method);
         }
 
         [Fact]

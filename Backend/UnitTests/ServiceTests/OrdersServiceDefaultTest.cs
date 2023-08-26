@@ -28,7 +28,7 @@ namespace UnitTests.ServiceTests
 
 
         [Fact]
-        public async Task FindOrderByIdAsync_Success_InvalidOrderId()
+        public async Task FindOrderByIdAsync_Fail_InvalidOrderId()
         {
             // Arrange
             var dbContextMock = new Mock<AppDbContext>(new DbContextOptions<AppDbContext>());
@@ -43,11 +43,14 @@ namespace UnitTests.ServiceTests
             // Act
             var orderService = new OrdersServiceDefault(dbContextMock.Object, mapper, ordersRepositoryMock.Object);
 
-            var orderResult = await orderService.FindOrderByIdAsync(1);
+            var method = async () =>
+            {
+                _ = await orderService.FindOrderByIdAsync(1);
+            };
 
 
             // Assert
-            Assert.Null(orderResult);
+            await Assert.ThrowsAsync<EntityNotFoundException>(method);
         }
 
         [Fact]

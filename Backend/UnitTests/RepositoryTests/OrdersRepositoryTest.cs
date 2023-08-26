@@ -25,7 +25,7 @@ namespace UnitTests.RepositoryTests
 
 
         [Fact]
-        public async Task AddAsync_Success()
+        public async Task AddAsync_Success_NewOrder()
         {
             using var context = databaseFixture.CreateContext();
 
@@ -203,7 +203,7 @@ namespace UnitTests.RepositoryTests
         }
 
         [Fact]
-        public async Task List_Success_WithFilterCustomerID()
+        public async Task List_Success_WithFilterByCustomerID()
         {
             using var context = databaseFixture.CreateContext();
 
