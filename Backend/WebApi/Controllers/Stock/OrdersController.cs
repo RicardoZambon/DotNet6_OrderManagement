@@ -56,6 +56,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Stock
         /// <response code="200">Sucessfully returned the orders list.</response>
         /// <response code="500">Internal server issue.</response>
         [HttpPost("[action]")]
+        [ProducesResponseType(typeof(OrdersListModel), 200)]
         public IActionResult List([FromBody] ListParametersModel parameters)
         {
             try
@@ -81,6 +82,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Stock
         /// <response code="404">The order ID was not found.</response>
         /// <response code="500">Internal server issue.</response>
         [HttpGet("{orderId}")]
+        [ProducesResponseType(typeof(OrderDisplayModel), 200)]
         public async Task<IActionResult> Get([FromRoute] long orderId)
         {
             try
@@ -141,6 +143,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Stock
         /// <response code="400">The order has validation issues, check response.</response>
         /// <response code="500">Internal server issue.</response>
         [HttpPut]
+        [ProducesResponseType(typeof(OrderDisplayModel), 200)]
         public async Task<IActionResult> Add([FromBody] OrderInsertModel model)
         {
             try
@@ -175,6 +178,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Stock
         /// <response code="400">The order has validation issues, check response.</response>
         /// <response code="500">Internal server issue.</response>
         [HttpPost]
+        [ProducesResponseType(typeof(OrderDisplayModel), 200)]
         public async Task<IActionResult> Update([FromBody] OrderUpdateModel model)
         {
             try
@@ -244,6 +248,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Stock
         /// <response code="404">The order ID was not found.</response>
         /// <response code="500">Internal server issue.</response>
         [HttpPost("{orderId}/[action]/List")]
+        [ProducesResponseType(typeof(OrdersProductsListModel), 200)]
         public async Task<IActionResult> Products([FromRoute] long orderId, [FromBody] ListParametersModel parameters)
         {
             try
@@ -285,6 +290,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Stock
         /// <response code="404">The order ID was not found.</response>
         /// <response code="500">Internal server issue.</response>
         [HttpPost("{orderId}/[action]")]
+        [ProducesResponseType(typeof(OrdersProductUpdateModel), 200)]
         public async Task<IActionResult> Products([FromRoute] long orderId, [FromBody] BatchUpdateModel<OrdersProductUpdateModel, long> model)
         {
             try

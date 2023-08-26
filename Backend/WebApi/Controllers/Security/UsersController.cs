@@ -5,6 +5,7 @@ using Zambon.OrderManagement.WebApi.Helpers;
 using Zambon.OrderManagement.WebApi.Helpers.Exceptions;
 using Zambon.OrderManagement.WebApi.Models;
 using Zambon.OrderManagement.WebApi.Models.Security;
+using Zambon.OrderManagement.WebApi.Models.Stock;
 using Zambon.OrderManagement.WebApi.Services.Security.Interfaces;
 
 namespace Zambon.OrderManagement.WebApi.Controllers.Security
@@ -50,6 +51,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Security
         /// <response code="200">Sucessfully returned the users list.</response>
         /// <response code="500">Internal server issue.</response>
         [HttpPost("[action]")]
+        [ProducesResponseType(typeof(UsersListModel), 200)]
         public IActionResult List([FromBody] ListParametersModel parameters)
         {
             try
@@ -75,6 +77,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Security
         /// <response code="404">The user ID was not found.</response>
         /// <response code="500">Internal server issue.</response>
         [HttpGet("{userId}")]
+        [ProducesResponseType(typeof(UserUpdateModel), 200)]
         public async Task<IActionResult> Get([FromRoute] long userId)
         {
             try
@@ -112,6 +115,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Security
         /// <response code="400">The user has validation issues, check response.</response>
         /// <response code="500">Internal server issue.</response>
         [HttpPut]
+        [ProducesResponseType(typeof(UserUpdateModel), 200)]
         public async Task<IActionResult> Add([FromBody] UserInsertModel model)
         {
             try
@@ -149,6 +153,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Security
         /// <response code="400">The user has validation issues, check response.</response>
         /// <response code="500">Internal server issue.</response>
         [HttpPost]
+        [ProducesResponseType(typeof(UserUpdateModel), 200)]
         public async Task<IActionResult> Update([FromBody] UserUpdateModel model)
         {
             try

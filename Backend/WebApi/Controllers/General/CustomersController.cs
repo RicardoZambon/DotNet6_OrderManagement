@@ -50,6 +50,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.General
         /// <response code="200">Sucessfully returned the customers list.</response>
         /// <response code="500">Internal server issue.</response>
         [HttpPost("[action]")]
+        [ProducesResponseType(typeof(CustomersListModel), 200)]
         public IActionResult List([FromBody] ListParametersModel parameters)
         {
             try
@@ -75,6 +76,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.General
         /// <response code="404">The customer ID was not found.</response>
         /// <response code="500">Internal server issue.</response>
         [HttpGet("{customerId}")]
+        [ProducesResponseType(typeof(CustomerUpdateModel), 200)]
         public async Task<IActionResult> Get([FromRoute] long customerId)
         {
             try
@@ -109,6 +111,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.General
         /// <response code="400">The customer has validation issues, check response.</response>
         /// <response code="500">Internal server issue.</response>
         [HttpPut]
+        [ProducesResponseType(typeof(CustomerUpdateModel), 200)]
         public async Task<IActionResult> Add([FromBody] CustomerInsertModel model)
         {
             try
@@ -143,6 +146,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.General
         /// <response code="400">The customer has validation issues, check response.</response>
         /// <response code="500">Internal server issue.</response>
         [HttpPost]
+        [ProducesResponseType(typeof(CustomerUpdateModel), 200)]
         public async Task<IActionResult> Update([FromBody] CustomerUpdateModel model)
         {
             try

@@ -28,7 +28,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Security
         /// Refresh the JWT token using a valid Refresh Token.
         /// </summary>
         /// <param name="model">Username and refresh token.</param>
-        /// <returns>The JWT Token and refresh roken.</returns>
+        /// <returns>An instance of <see cref="AuthenticationResponseModel"/> with the JWT token and refresh token.</returns>
         /// <remarks>
         /// Sample request:
         /// 
@@ -43,6 +43,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Security
         /// <response code="401">Invalid refresh token, token expired, or invalid username.</response>
         /// <response code="500">Internal server issue.</response>
         [HttpPost, Route("[action]"), AllowAnonymous]
+        [ProducesResponseType(typeof(AuthenticationResponseModel), 200)]
         public async Task<IActionResult> RefreshToken(RefreshTokenModel model)
         {
             try
@@ -67,7 +68,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Security
         /// Validate the user credentials to grant access to the API.
         /// </summary>
         /// <param name="model">Username and password to authenticate.</param>
-        /// <returns>The JWT Token and refresh token.</returns>
+        /// <returns>An instance of <see cref="AuthenticationResponseModel"/> with the JWT token and refresh token.</returns>
         /// <remarks>
         /// Sample request:
         /// 
@@ -82,6 +83,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Security
         /// <response code="401">Invalid username or password.</response>
         /// <response code="500">Internal server issue.</response>
         [HttpPost, Route("[action]"), AllowAnonymous]
+        [ProducesResponseType(typeof(AuthenticationResponseModel), 200)]
         public async Task<IActionResult> SignIn(SignInModel model)
         {
             try

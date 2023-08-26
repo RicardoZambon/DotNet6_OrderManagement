@@ -50,6 +50,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Stock
         /// <response code="200">Sucessfully returned the products list.</response>
         /// <response code="500">Internal server issue.</response>
         [HttpPost("[action]")]
+        [ProducesResponseType(typeof(ProductsListModel), 200)]
         public IActionResult List([FromBody] ListParametersModel parameters)
         {
             try
@@ -75,6 +76,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Stock
         /// <response code="404">The product ID was not found.</response>
         /// <response code="500">Internal server issue.</response>
         [HttpGet("{productId}")]
+        [ProducesResponseType(typeof(ProductUpdateModel), 200)]
         public async Task<IActionResult> Get([FromRoute] long productId)
         {
             try
@@ -109,6 +111,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Stock
         /// <response code="400">The product has validation issues, check response.</response>
         /// <response code="500">Internal server issue.</response>
         [HttpPut]
+        [ProducesResponseType(typeof(ProductUpdateModel), 200)]
         public async Task<IActionResult> Add([FromBody] ProductInsertModel model)
         {
             try
@@ -143,6 +146,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Stock
         /// <response code="400">The product has validation issues, check response.</response>
         /// <response code="500">Internal server issue.</response>
         [HttpPost]
+        [ProducesResponseType(typeof(ProductUpdateModel), 200)]
         public async Task<IActionResult> Update([FromBody] ProductUpdateModel model)
         {
             try
