@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  api:
+    build: .\Backend
+    env_file: .env
+    ports:
+      - "8080:80"
+    depends_on:
+      - mssql-server
+  mssql-server:
+    image: mcr.microsoft.com/mssql/server
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: AdminPassword123!
+    ports:
+      - "1433:1433"
+
+networks:
+  default:
+    name: order-management
