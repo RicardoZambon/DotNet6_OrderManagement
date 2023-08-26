@@ -18,7 +18,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.General
         private readonly ICustomersService customersService;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CustomersController"/> class.
+        /// Initializes a new instance of <see cref="CustomersController"/> class.
         /// </summary>
         /// <param name="customersService">The <see cref="ICustomersService"/> instance.</param>
         public CustomersController(ICustomersService customersService)

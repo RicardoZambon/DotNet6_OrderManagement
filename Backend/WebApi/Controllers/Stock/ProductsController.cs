@@ -18,7 +18,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Stock
         private readonly IProductsService productsService;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProductsController"/> class.
+        /// Initializes a new instance of <see cref="ProductsController"/> class.
         /// </summary>
         /// <param name="productsService">The <see cref="IProductsService"/> instance.</param>
         public ProductsController(IProductsService productsService)

@@ -3,8 +3,17 @@ using Zambon.OrderManagement.Core.DataInitializers;
 
 namespace Zambon.OrderManagement.WebApi.Helpers.ExtensionMethods
 {
+    /// <summary>
+    /// Auxiliary methods for the database initialization.
+    /// </summary>
     public static class DbInitializerExtension
     {
+        /// <summary>
+        /// Seeds
+        /// </summary>
+        /// <param name="app">The <see cref="IApplicationBuilder"/> instance.</param>
+        /// <param name="pendingMigrations">The list of the pending migrations to be applied in the database.</param>
+        /// <returns>A reference to the <see cref="IApplicationBuilder"/> instance after the operation has completed.</returns>
         public static IApplicationBuilder SeedSqlServer(this IApplicationBuilder app, IEnumerable<string> pendingMigrations)
         {
             ArgumentNullException.ThrowIfNull(app, nameof(app));

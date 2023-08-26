@@ -15,7 +15,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Security
         private readonly IAuthenticationService authenticationService;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AuthenticationController"/> class.
+        /// Initializes a new instance of <see cref="AuthenticationController"/> class.
         /// </summary>
         /// <param name="authenticationService">The <see cref="IAuthenticationService"/> instance.</param>
         public AuthenticationController(IAuthenticationService authenticationService)

@@ -56,7 +56,7 @@ namespace Zambon.OrderManagement.WebApi.Models.General
     public class CustomerModelsProfiles : Profile
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CustomerModelsProfiles"/> class.
+        /// Initializes a new instance of <see cref="CustomerModelsProfiles"/> class.
         /// </summary>
         public CustomerModelsProfiles()
         {

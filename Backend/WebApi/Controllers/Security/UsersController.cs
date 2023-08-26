@@ -19,7 +19,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Security
         private readonly IUsersService usersService;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UsersController"/> class.
+        /// Initializes a new instance of <see cref="UsersController"/> class.
         /// </summary>
         /// <param name="usersService">The <see cref="IUsersService"/> instance.</param>
         public UsersController(IUsersService usersService)

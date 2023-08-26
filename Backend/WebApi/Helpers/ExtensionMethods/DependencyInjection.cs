@@ -9,15 +9,15 @@ using Zambon.OrderManagement.WebApi.Services.Stock.Interfaces;
 namespace Zambon.OrderManagement.WebApi.Helpers.ExtensionMethods
 {
     /// <summary>
-    /// Métodos auxiliares para injeção de dependência dos serviços de WebAPI.
+    /// Auxiliary methods for the dependency injection of the WebAPI services.
     /// </summary>
     public static class DependencyInjection
     {
         /// <summary>
-        /// Adiciona serviços necessários ao WebAPI.
+        /// Add required services for the WebAPI.
         /// </summary>
-        /// <param name="services">O <see cref="IServiceCollection" /> para adicionar os serviços.</param>
-        /// <returns>O <see cref="IServiceCollection"/>, de forma que permite que sejam feitas chamadas em cadeia.</returns>
+        /// <param name="services">The <see cref="IServiceCollection"/> instance.</param>
+        /// <returns>A reference to the <see cref="IServiceCollection"/> instance after the operation has completed.</returns>
         public static IServiceCollection AddWebAPIServices(this IServiceCollection services)
         {
             return services

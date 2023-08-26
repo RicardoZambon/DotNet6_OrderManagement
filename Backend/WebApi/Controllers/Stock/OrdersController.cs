@@ -19,7 +19,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Stock
         private readonly IOrdersProductsService ordersProductsService;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="OrdersController"/> class.
+        /// Initializes a new instance of <see cref="OrdersController"/> class.
         /// </summary>
         /// <param name="ordersService">The <see cref="IOrdersService"/> instance.</param>
         /// <param name="ordersProductsService">The <see cref="IOrdersProductsService"/> instance.</param>
@@ -103,7 +103,7 @@ namespace Zambon.OrderManagement.WebApi.Controllers.Stock
         /// Return the order total by the ID.
         /// </summary>
         /// <param name="orderId">The ID of the order to search for.</param>
-        /// <returns>The total (sum of the products Qty * UnitPrice) of the <see cref="Orders"/> instance.</returns>
+        /// <returns>The total (sum of the products Qty * UnitPrice) of <see cref="Orders"/> instance.</returns>
         /// <response code="200">Sucessfully returned the order total.</response>
         /// <response code="404">The order ID was not found.</response>
         /// <response code="500">Internal server issue.</response>

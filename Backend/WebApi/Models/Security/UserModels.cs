@@ -82,7 +82,7 @@ namespace Zambon.OrderManagement.WebApi.Models.Security
     public class UserModelsProfiles : Profile
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UserModelsProfiles"/> class.
+        /// Initializes a new instance of <see cref="UserModelsProfiles"/> class.
         /// </summary>
         public UserModelsProfiles()
         {
